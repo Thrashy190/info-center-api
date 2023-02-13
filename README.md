@@ -4,10 +4,10 @@
 
 ```bash
 docker run --name forum-go-app
-    -e POSTGRES_PASSWORD=posxstgrespw
-    -e POSTGRES_USER=postgres
-    -e POSTGRES_DB=postgres
-    -p 55002:5432
+    -e POSTGRES_PASSWORD={password}
+    -e POSTGRES_USER={username}
+    -e POSTGRES_DB={postgres}
+    -p {puerto}
     -d postgres
 ```
 
