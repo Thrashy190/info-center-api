@@ -14,7 +14,7 @@ var DB *gorm.DB
 
 func ModelAutoMigrations() {
 	var err error
-	err = DB.AutoMigrate(models.Careers{}, models.Users{}, models.Book{}, models.Projects{}, models.Request{}, models.RequestInfo{})
+	err = DB.AutoMigrate(models.Careers{}, models.Users{}, models.Book{}, models.Tesis{}, models.Projects{}, models.Request{}, models.RequestInfo{})
 
 	if err != nil {
 		utils.Warning(err.Error())

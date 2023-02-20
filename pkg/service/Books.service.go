@@ -26,7 +26,7 @@ func (s *BooksServiceImpl) CreateBook(book *models.Book) error {
 
 func (s *BooksServiceImpl) GetBooksByPage(page int) ([]models.Book, error) {
 	var books []models.Book
-	if err := s.DB.Limit(10).Offset(page).Find(&books).Error; err != nil {
+	if err := s.DB.Limit(5).Offset(page).Find(&books).Error; err != nil {
 		return nil, err
 	}
 	return books, nil

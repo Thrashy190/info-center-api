@@ -34,7 +34,7 @@ func (s *RequestServiceImpl) GetRequestByID(id uint) (*models.Request, error) {
 
 func (s *RequestServiceImpl) GetRequestsByPage(page int) ([]models.Request, error) {
 	var requests []models.Request
-	if err := s.DB.Limit(10).Offset(page).Preload(clause.Associations).Find(&requests).Error; err != nil {
+	if err := s.DB.Limit(5).Offset(page).Preload(clause.Associations).Find(&requests).Error; err != nil {
 		return nil, err
 	}
 	return requests, nil

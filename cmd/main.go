@@ -17,6 +17,7 @@ func main() {
 
 	utils.Process("Connecting to 8080...")
 	r := gin.Default()
+
 	utils.Succes("Connection to localhost:8080 successfull")
 	initializers()
 
