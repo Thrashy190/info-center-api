@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/Thrashy190/info-center-api/pkg/controllers"
-	"github.com/Thrashy190/info-center-api/pkg/service"
+	service "github.com/Thrashy190/info-center-api/pkg/services"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
@@ -18,7 +18,7 @@ func BooksRouter(publicRouter *gin.RouterGroup, protectedRouter *gin.RouterGroup
 		publicRouterBooks.GET("/book/:id", bookController.GetBooksByID)
 	}
 
-	protectedRouterBooks := publicRouter.Group("/books")
+	protectedRouterBooks := protectedRouter.Group("/books")
 	{
 		protectedRouterBooks.POST("/book", bookController.CreateBook)
 		protectedRouterBooks.DELETE("/book/:id", bookController.DeleteBook)

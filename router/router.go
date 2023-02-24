@@ -13,7 +13,8 @@ func SetupRouter(gin *gin.Engine, db *gorm.DB) {
 	BooksRouter(publicRouter, protectedRouter, db)
 	RequestsRouter(publicRouter, protectedRouter, db)
 	CareersRouter(publicRouter, protectedRouter, db)
-
+	TesisRouter(publicRouter, protectedRouter, db)
+	UsersRouter(protectedRouter, db)
 	ProjectsRouter(publicRouter, protectedRouter, db)
 
 }

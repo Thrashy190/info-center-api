@@ -8,10 +8,10 @@ func LoadEnvironment() {
 
 	err := godotenv.Load(".env")
 	if err != nil {
-		Warning("Error loading environment")
-	}else{
+		Error("Error loading environment")
+	} else {
 		Succes(".env successfully load")
-	
+
 	}
-	
+
 }

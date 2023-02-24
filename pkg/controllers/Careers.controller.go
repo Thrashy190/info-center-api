@@ -4,7 +4,7 @@ import (
 	"strconv"
 
 	"github.com/Thrashy190/info-center-api/pkg/models"
-	"github.com/Thrashy190/info-center-api/pkg/service"
+	service "github.com/Thrashy190/info-center-api/pkg/services"
 	"github.com/gin-gonic/gin"
 )
 

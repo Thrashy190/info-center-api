@@ -17,7 +17,7 @@ func ModelAutoMigrations() {
 	err = DB.AutoMigrate(models.Careers{}, models.Users{}, models.Book{}, models.Tesis{}, models.Projects{}, models.Request{}, models.RequestInfo{})
 
 	if err != nil {
-		utils.Warning(err.Error())
+		utils.Error(err.Error())
 	}
 }
 
@@ -34,7 +34,7 @@ func Dbconnection() {
 
 	DB, error = gorm.Open(postgres.Open(DSN), &gorm.Config{})
 	if error != nil {
-		utils.Warning(error.Error())
+		utils.Error(error.Error())
 
 	} else {
 		utils.Succes("DB connected successfully")

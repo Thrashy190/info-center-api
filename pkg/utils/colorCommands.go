@@ -6,19 +6,19 @@ import (
 	"github.com/fatih/color"
 )
 
-func Warning(text string){
+func Error(text string) {
 	color.Set(color.FgRed)
 	log.Fatalf(text)
 	color.Unset()
 }
 
-func Succes(text string){
+func Succes(text string) {
 	color.Set(color.FgGreen)
 	log.Println(text)
 	color.Unset()
 }
 
-func Process(text string){
+func Process(text string) {
 	color.Set(color.FgBlue)
 	log.Println(text)
 	color.Unset()

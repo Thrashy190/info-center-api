@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/Thrashy190/info-center-api/pkg/controllers"
-	"github.com/Thrashy190/info-center-api/pkg/service"
+	service "github.com/Thrashy190/info-center-api/pkg/services"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
