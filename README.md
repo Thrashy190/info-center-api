@@ -17,7 +17,7 @@ docker run --name info-center-api
 docker exec -it info-center-api psql -U postgres
 ```
 
-### Run Api
+### Run main
 
 ```bash
 go run ./cmd/main.go
