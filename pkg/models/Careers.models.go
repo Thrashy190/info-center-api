@@ -7,3 +7,7 @@ type Careers struct {
 	ID   uint   `gorm:"primaryKey; not null; uniqueIndex; autoIncrement" json:"id"`
 	Name string `gorm:"not null;" json:"name"`
 }
+
+type CareersForSwagger struct {
+	Name string `json:"name"`
+}

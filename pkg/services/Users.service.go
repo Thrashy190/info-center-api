@@ -2,10 +2,12 @@ package service
 
 import (
 	"github.com/Thrashy190/info-center-api/pkg/models"
+	"github.com/Thrashy190/info-center-api/pkg/utils"
 	"gorm.io/gorm"
 )
 
 type UsersService interface {
+	SignUpUser(user models.Users) (*models.Users, error)
 	GetUsersByPage(page uint) ([]models.Users, error)
 	GetUserByID(id uint) (*models.Users, error)
 	DeleteUser(id uint) error
@@ -14,6 +16,18 @@ type UsersService interface {
 
 type UsersServiceImpl struct {
 	DB *gorm.DB
+}
+
+func (s *UsersServiceImpl) SignUpUser(user models.Users) (*models.Users, error) {
+	var err error
+
+	if user.Password, err = utils.HashPassword(user.Password); err != nil {
+		return nil, err
+	}
+
+	println(user.Password)
+
+	return &user, nil
 }
 
 func (s *UsersServiceImpl) GetUsersByPage(page int) ([]models.Users, error) {

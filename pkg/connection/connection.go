@@ -30,14 +30,24 @@ func Dbconnection() {
 	port := " port=" + os.Getenv("DB_PORT")
 
 	var DSN = host + user + password + dbname + port
-	var error error
+	var err error
 
-	DB, error = gorm.Open(postgres.Open(DSN), &gorm.Config{})
-	if error != nil {
-		utils.Error(error.Error())
-
-	} else {
-		utils.Succes("DB connected successfully")
-		log.Println(DB)
+	if DB, err = gorm.Open(postgres.Open(DSN), &gorm.Config{}); err != nil {
+		utils.Error(err.Error())
+		return
 	}
+
+	//TODO check close connection
+
+	defer func() {
+		sqlDB, err := DB.DB()
+		if err != nil {
+			log.Fatalln(err)
+		}
+		_ = sqlDB.Close()
+	}()
+
+	utils.Succes("DB connected successfully")
+	log.Println(DB)
+
 }

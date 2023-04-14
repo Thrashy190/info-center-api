@@ -1,0 +1,278 @@
+basePath: /
+definitions:
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+  models.Book:
+    properties:
+      clasification:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      isbn_issn:
+        type: string
+      status:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      year:
+        type: integer
+    type: object
+  models.BookForSwagger:
+    properties:
+      clasification:
+        type: string
+      isbn_issn:
+        type: string
+      status:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      year:
+        type: integer
+    type: object
+  models.Careers:
+    properties:
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      name:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  models.CareersForSwagger:
+    properties:
+      name:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: diego.lopez.mtz@protonmail.com
+    name: Thrashy190
+    url: https://thrashy190.github.io/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+paths:
+  /protected/books/book:
+    post:
+      description: Create a book
+      parameters:
+      - description: Book JSON
+        in: body
+        name: book
+        required: true
+        schema:
+          $ref: '#/definitions/models.BookForSwagger'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Book'
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal Server Error
+      summary: Create a book
+      tags:
+      - Books
+  /protected/books/book/{id}:
+    delete:
+      description: Delete book by id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User deleted
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal Server Error
+      summary: Delete book
+      tags:
+      - Books
+    put:
+      description: Update book by id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Book'
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal Server Error
+      summary: Update book
+      tags:
+      - Books
+  /protected/careers/{id}:
+    delete:
+      description: Delete career
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Career deleted
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal Server Error
+      summary: Delete Career
+      tags:
+      - Careers
+    put:
+      description: Update a career
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Careers'
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal Server Error
+      summary: Update Career
+      tags:
+      - Careers
+  /protected/careers/career:
+    post:
+      description: Create a career
+      parameters:
+      - description: Career JSON
+        in: body
+        name: career
+        required: true
+        schema:
+          $ref: '#/definitions/models.CareersForSwagger'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Careers'
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal Server Error
+      summary: Create a career
+      tags:
+      - Careers
+  /public/books/{page}:
+    get:
+      description: Pagination for books
+      parameters:
+      - description: Page ID
+        in: path
+        name: page
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Book'
+            type: array
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal Server Error
+      summary: Get Books by Page
+      tags:
+      - Books
+  /public/books/book/{id}:
+    get:
+      description: Get only one book by id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Book'
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal Server Error
+      summary: Get Books by ID
+      tags:
+      - Books
+  /public/careers/:
+    get:
+      description: Get all the list of careers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Careers'
+            type: array
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal Server Error
+      summary: Get all Careers
+      tags:
+      - Careers
+swagger: "2.0"

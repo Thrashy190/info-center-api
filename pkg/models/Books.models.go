@@ -12,3 +12,12 @@ type Book struct {
 	Status        string `gorm:"not null" json:"status"`
 	Typebook      string `gorm:"not null" json:"type"`
 }
+
+type BookForSwagger struct {
+	Title         string `json:"title"`
+	Year          uint   `json:"year"`
+	Clasification string `json:"clasification"`
+	IsbnIssn      string `json:"isbn_issn"`
+	Status        string `json:"status"`
+	Typebook      string `json:"type"`
+}
