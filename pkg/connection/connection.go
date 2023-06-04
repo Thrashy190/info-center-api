@@ -14,14 +14,25 @@ var DB *gorm.DB
 
 func ModelAutoMigrations() {
 	var err error
-	err = DB.AutoMigrate(models.Careers{}, models.Users{}, models.Book{}, models.Tesis{}, models.Projects{}, models.Request{}, models.RequestInfo{})
+	err = DB.AutoMigrate(
+		models.Careers{},
+		models.Departments{},
+		models.Users{},
+		models.Book{},
+		models.Tesis{},
+		models.Projects{},
+		models.Request{},
+		models.RequestInfo{},
+		models.AccessStudents{},
+		models.AccessEmployees{},
+	)
 
 	if err != nil {
 		utils.Error(err.Error())
 	}
 }
 
-func Dbconnection() {
+func Connection() {
 
 	host := " host=" + os.Getenv("DB_HOST")
 	user := " user=" + os.Getenv("DB_USERNAME")
@@ -37,17 +48,7 @@ func Dbconnection() {
 		return
 	}
 
-	//TODO check close connection
-
-	defer func() {
-		sqlDB, err := DB.DB()
-		if err != nil {
-			log.Fatalln(err)
-		}
-		_ = sqlDB.Close()
-	}()
-
-	utils.Succes("DB connected successfully")
+	utils.Success("DB connected successfully")
 	log.Println(DB)
 
 }

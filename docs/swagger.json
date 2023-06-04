@@ -9,7 +9,9 @@
         "license": {
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
-        }
+        },
+        "version": "",
+        "title": ""
     },
     "host": "localhost:8080",
     "basePath": "/",

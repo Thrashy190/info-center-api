@@ -1,9 +1,8 @@
 package utils
 
 import (
-	"log"
-
 	"github.com/joho/godotenv"
+	"log"
 )
 
 func LoadEnvironment() {
@@ -11,9 +10,8 @@ func LoadEnvironment() {
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatal(err)
-		Error("Error loading environment")
 	} else {
-		Succes(".env successfully load")
+		Success(".env successfully load")
 
 	}
 

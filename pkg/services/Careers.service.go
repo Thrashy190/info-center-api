@@ -5,7 +5,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type CareerssService interface {
+type CareersService interface {
 	GetCareers() ([]models.Careers, error)
 	CreateCareer(*models.Careers) error
 	DeleteCareer(id uint) error

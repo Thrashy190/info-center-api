@@ -11,9 +11,10 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
-func initializers() {
+func Initializers() {
 	utils.LoadEnvironment()
-	connection.Dbconnection()
+	connection.Connection()
+	connection.GenerateSeed()
 	connection.ModelAutoMigrations()
 }
 
@@ -45,12 +46,13 @@ func main() {
 	docs.SwaggerInfo.Host = "localhost:8080"
 	docs.SwaggerInfo.BasePath = "/"
 
-	utils.Succes("Connection to localhost:8080 successfull")
-	initializers()
+	utils.Success("Connection to localhost:8080 successfull")
+	Initializers()
 
 	router.SetupRouter(r, connection.DB)
 
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+
 	err := r.Run(":8080")
 	if err != nil {
 		return

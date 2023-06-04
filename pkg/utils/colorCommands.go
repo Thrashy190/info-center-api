@@ -9,10 +9,9 @@ import (
 func Error(text string) {
 	color.Set(color.FgRed)
 	log.Fatalf(text)
-	color.Unset()
 }
 
-func Succes(text string) {
+func Success(text string) {
 	color.Set(color.FgGreen)
 	log.Println(text)
 	color.Unset()
