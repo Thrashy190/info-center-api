@@ -1,35 +1,95 @@
-{
-  "departments":[
-    {"name": "División de Estudios Profesionales"},
-    {"name": "Secretaria de Dirección"},
-    {"name": "Mecatrónica"},
-    {"name": "Subdirección de Servicios Administrativos"},
-    {"name": "Planeación, Programación y Presupuestación"},
-    {"name": "Recursos Humanos"},
-    {"name": "Desarrollo Académico"},
-    {"name": "Almacén"},
-    {"name": "Servicio Médico"},
-    {"name": "Centro de Información"},
-    {"name": "Gestión Tecnológica y Vinculación"},
-    {"name": "Subdirección de Planeación y Vinculación"},
-    {"name": "Ciencias Económico Administrativas"},
-    {"name": "Sistemas Computacionales"},
-    {"name": "Eléctrica / Electrónica"},
-    {"name": "Recursos Financieros"},
-    {"name": "Centro de Idiomas"},
-    {"name": "División de Estudios de Posgrado e Investigación"},
-    {"name": "Comunicación y Difusión"},
-    {"name": "Dirección"},
-    {"name": "Centro de Cómputo"},
-    {"name": "Secretaria de Recursos Humanos"},
-    {"name": "Mantenimiento de Equipo"},
-    {"name": "Metal / Mecánica"},
-    {"name": "Actividades Extraescolares"},
-    {"name": "Radio Tecnológico"},
-    {"name": "Delegación Sindical Federal"},
-    {"name": "Recursos Materiales y Servicios"},
-    {"name": "Ciencias basicas"},
-    {"name": "Subdirección Académica"},
-    {"name": "Delegación Sindical Estatal"}
-  ]
-}
+[
+  {
+    "name": "División de Estudios Profesionales"
+  },
+  {
+    "name": "Secretaria de Dirección"
+  },
+  {
+    "name": "Mecatrónica"
+  },
+  {
+    "name": "Subdirección de Servicios Administrativos"
+  },
+  {
+    "name": "Planeación, Programación y Presupuestación"
+  },
+  {
+    "name": "Recursos Humanos"
+  },
+  {
+    "name": "Desarrollo Académico"
+  },
+  {
+    "name": "Almacén"
+  },
+  {
+    "name": "Servicio Médico"
+  },
+  {
+    "name": "Centro de Información"
+  },
+  {
+    "name": "Gestión Tecnológica y Vinculación"
+  },
+  {
+    "name": "Subdirección de Planeación y Vinculación"
+  },
+  {
+    "name": "Ciencias Económico Administrativas"
+  },
+  {
+    "name": "Sistemas Computacionales"
+  },
+  {
+    "name": "Eléctrica / Electrónica"
+  },
+  {
+    "name": "Recursos Financieros"
+  },
+  {
+    "name": "Centro de Idiomas"
+  },
+  {
+    "name": "División de Estudios de Posgrado e Investigación"
+  },
+  {
+    "name": "Comunicación y Difusión"
+  },
+  {
+    "name": "Dirección"
+  },
+  {
+    "name": "Centro de Cómputo"
+  },
+  {
+    "name": "Secretaria de Recursos Humanos"
+  },
+  {
+    "name": "Mantenimiento de Equipo"
+  },
+  {
+    "name": "Metal / Mecánica"
+  },
+  {
+    "name": "Actividades Extraescolares"
+  },
+  {
+    "name": "Radio Tecnológico"
+  },
+  {
+    "name": "Delegación Sindical Federal"
+  },
+  {
+    "name": "Recursos Materiales y Servicios"
+  },
+  {
+    "name": "Ciencias basicas"
+  },
+  {
+    "name": "Subdirección Académica"
+  },
+  {
+    "name": "Delegación Sindical Estatal"
+  }
+]

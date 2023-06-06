@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:latest
-    container_name: "arqontact_db"
+    container_name: "infocenter_db"
     environment:
       - POSTGRES_USER=infocenter-admin
       - POSTGRES_PASSWORD=infocenter@123

@@ -3,13 +3,18 @@ package connection
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/Thrashy190/info-center-api/pkg/utils"
 	"io/ioutil"
 	"os"
+
+	"github.com/Thrashy190/info-center-api/pkg/utils"
 )
 
-func OpenJson() {
-	jsonFile, err := os.Open("pkg/connection/data/careers.json")
+type Data struct {
+	Name string `json:"name"`
+}
+
+func pullData(path string) []Data {
+	jsonFile, err := os.Open(path)
 
 	if err != nil {
 		fmt.Println("Error opening seed file")
@@ -19,14 +24,18 @@ func OpenJson() {
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 
-	var careers map[string]interface{}
+	var data []Data
 
-	err = json.Unmarshal(byteValue, &careers)
+	err = json.Unmarshal(byteValue, &data)
 
-	fmt.Println(careers["careers"])
+	if err != nil {
+		fmt.Printf("Error")
+	}
 
+	return data
 }
 
 func GenerateSeed() {
-	OpenJson()
+	pullData("pkg/connection/data/careers.json")
+	pullData("pkg/connection/data/departments.json")
 }

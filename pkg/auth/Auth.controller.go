@@ -1,13 +1,14 @@
 package auth
 
 import (
+	"net/http"
+	"os"
+	"time"
+
 	"github.com/Thrashy190/info-center-api/pkg/models"
 	"github.com/Thrashy190/info-center-api/pkg/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
-	"net/http"
-	"os"
-	"time"
 )
 
 type AuthenticationController struct {
@@ -49,7 +50,7 @@ func (c *AuthenticationController) Login(ctx *gin.Context) {
 	ctx.SetSameSite(http.SameSiteLaxMode)
 	ctx.SetCookie("Authorization", tokenString, 3600*24*30, "", "", false, true)
 
-	ctx.JSON(http.StatusOK, gin.H{"data": user})
+	ctx.JSON(http.StatusOK, gin.H{"Message": "Login success"})
 }
 
 func (c *AuthenticationController) SignUp(ctx *gin.Context) {
