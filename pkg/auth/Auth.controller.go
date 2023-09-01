@@ -25,7 +25,7 @@ func (c *AuthenticationController) Login(ctx *gin.Context) {
 
 	user := c.AuthService.Login(&auth)
 
-	if user.ID == 0 {
+	if user == nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Invalid Email or password"})
 		return
 	}

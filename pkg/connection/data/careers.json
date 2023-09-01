@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
   {
     "name": "Sistemas computacionales"
   },
@@ -24,3 +25,15 @@
     "name": "Materiales"
   }
 ]
+=======
+    {"name": "Sistemas computacionales"},
+    {"name": "Mecatronica"},
+    {"name": "Mecanica"},
+    {"name": "Electrica"},
+    {"name": "Electronica"},
+    {"name": "Gestion Empresarial"},
+    {"name": "Industrial"},
+    {"name": "Materiales"}
+]
+
+>>>>>>> 7abd66c (fix login function and change books pagination)

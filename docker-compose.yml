@@ -1,7 +1,11 @@
 services:
   db:
     image: postgres:latest
+<<<<<<< HEAD
     container_name: "infocenter_db"
+=======
+    container_name: "infocenter"
+>>>>>>> 7abd66c (fix login function and change books pagination)
     environment:
       - POSTGRES_USER=infocenter-admin
       - POSTGRES_PASSWORD=infocenter@123

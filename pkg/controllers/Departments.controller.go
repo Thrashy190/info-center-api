@@ -12,6 +12,15 @@ type DepartmentController struct {
 	DepartmentService service.DepartmentServiceImpl
 }
 
+// @Summary		Create a department
+// @Description	Create a department
+// @Tags			Departments
+// @Produce		json
+// @Param			department	body		models.DepartmentsForSwagger	true	"Department JSON"
+// @Success		200		{object}	models.Departments
+// @Failure		400		"Invalid request payload"
+// @Failure		500		"Internal Server Error"
+// @Router			/protected/departments/department [post]
 func (c *DepartmentController) CreateDepartment(ctx *gin.Context) {
 	var department models.Departments
 	if err := ctx.ShouldBindJSON(&department); err != nil {

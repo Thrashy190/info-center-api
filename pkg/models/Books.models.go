@@ -8,6 +8,7 @@ type Book struct {
 	Title         string `gorm:"not null" json:"title"`
 	Year          uint   `gorm:"not null" json:"year"`
 	Clasification string `gorm:"not null" json:"clasification"`
+	Author        string `gorm:"not null" json:"author"`
 	IsbnIssn      string `gorm:"not null" json:"isbn_issn"`
 	Status        string `gorm:"not null" json:"status"`
 	Typebook      string `gorm:"not null" json:"type"`

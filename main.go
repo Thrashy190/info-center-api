@@ -4,6 +4,10 @@ import (
 	docs "github.com/Thrashy190/info-center-api/docs"
 	"github.com/Thrashy190/info-center-api/pkg/connection"
 	"github.com/Thrashy190/info-center-api/pkg/utils"
+	"github.com/Thrashy190/info-center-api/router"
+	"github.com/gin-gonic/gin"
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func Initializers() {
@@ -33,7 +37,7 @@ func main() {
 
 	utils.Process("Connecting to 8080...")
 
-	//r := gin.Default()
+	r := gin.Default()
 
 	docs.SwaggerInfo.Title = "Information center API REST"
 	docs.SwaggerInfo.Description = "This is a API REST Documentation for the ITS Information Center"
@@ -44,12 +48,12 @@ func main() {
 	utils.Success("Connection to localhost:8080 successfull")
 	Initializers()
 
-	// router.SetupRouter(r, connection.DB)
+	router.SetupRouter(r, connection.DB)
 
-	// r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
-	// err := r.Run(":8080")
-	// if err != nil {
-	// 	return
-	// }
+	err := r.Run(":8080")
+	if err != nil {
+		return
+	}
 }

@@ -1,12 +1,14 @@
 package service
 
 import (
+	"math"
+
 	"github.com/Thrashy190/info-center-api/pkg/models"
 	"gorm.io/gorm"
 )
 
 type BooksService interface {
-	GetBooksByPage(page uint) ([]models.Book, error)
+	GetBooksByPage(page uint) (models.Book, error)
 	GetBookByID(id uint) (*models.Book, error)
 	CreateBook(*models.Book) error
 	DeleteBook(id uint) error
@@ -24,12 +26,34 @@ func (s *BooksServiceImpl) CreateBook(book *models.Book) error {
 	return nil
 }
 
-func (s *BooksServiceImpl) GetBooksByPage(page int) ([]models.Book, error) {
-	var books []models.Book
-	if err := s.DB.Limit(5).Offset(page).Find(&books).Error; err != nil {
+func (s *BooksServiceImpl) GetBooksByPage(page int) (*models.PaginationDataBooks, error) {
+
+	perPage := 4
+
+	//Count total books
+	var totalRows int64
+	if err := s.DB.Model(&models.Book{}).Count(&totalRows).Error; err != nil {
 		return nil, err
 	}
-	return books, nil
+	totalPages := math.Ceil(float64(totalRows) / float64(perPage))
+
+	offset := (page - 1) * perPage
+
+	//Get pagination data
+	var books []models.Book
+	if err := s.DB.Limit(4).Offset(offset).Find(&books).Error; err != nil {
+		return nil, err
+	}
+
+	var paginationData = models.PaginationDataBooks{
+		Books:        &books,
+		NextPage:     page + 1,
+		PreviousPage: page - 1,
+		CurrentPage:  page,
+		TotalPages:   int(totalPages),
+	}
+
+	return &paginationData, nil
 }
 
 func (s *BooksServiceImpl) GetBooksByID(id uint) (*models.Book, error) {

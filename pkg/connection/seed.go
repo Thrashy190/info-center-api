@@ -20,6 +20,7 @@ func pullData(path string) []Data {
 		fmt.Println("Error opening seed file")
 		fmt.Println(err)
 	}
+
 	utils.Success("File opened successfully")
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)

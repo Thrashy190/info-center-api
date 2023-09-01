@@ -7,3 +7,7 @@ type Departments struct {
 	ID   uint   `gorm:"primaryKey; not null; uniqueIndex; autoIncrement" json:"id"`
 	Name string `gorm:"not null;" json:"name"`
 }
+
+type DepartmentsForSwagger struct {
+	Name string `json:"name"`
+}
