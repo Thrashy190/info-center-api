@@ -29,17 +29,16 @@ func (c *TesisController) CreateTesis(ctx *gin.Context) {
 
 func (c *TesisController) GetTesisByPage(ctx *gin.Context) {
 	page, err := strconv.ParseUint(ctx.Param("page"), 10, 32)
-	offset := (page - 1) * 10
 	if err != nil {
 		ctx.JSON(400, gin.H{"error": "Invalid Page"})
 		return
 	}
-	tesiss, err := c.TesisService.GetTesisByPage(int(offset))
+	tesis, err := c.TesisService.GetTesisByPage(int(page))
 	if err != nil {
 		ctx.JSON(500, gin.H{"error": err.Error()})
 		return
 	}
-	ctx.JSON(200, gin.H{"data": tesiss})
+	ctx.JSON(200, gin.H{"data": tesis})
 }
 
 func (c *TesisController) GetTesisByID(ctx *gin.Context) {

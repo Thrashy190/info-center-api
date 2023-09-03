@@ -8,7 +8,7 @@ import (
 )
 
 type BooksService interface {
-	GetBooksByPage(page uint) (models.Book, error)
+	GetBooksByPage(page uint) (*models.PaginationDataBooks, error)
 	GetBookByID(id uint) (*models.Book, error)
 	CreateBook(*models.Book) error
 	DeleteBook(id uint) error
